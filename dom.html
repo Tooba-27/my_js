@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <ul class="language">
+    <li>javascript</li>
+   </ul>
+</body>
+<script>
+    function addlanguage(langname){
+     const li = document.createElement('li');
+     li.innerHTML= `${langname}`;
+     document.querySelector('.language').appendChild(li);
+
+    }
+    lang1 = "html"
+    addlanguage("typescript")
+    addlanguage(lang1)
+
+     function addoptlanguage(langname){
+     const li = document.createElement('li');
+     li.appendChild(document.createTextNode(langname))
+     document.querySelector('.language').appendChild(li);
+
+    }
+    addoptlanguage("css")
+
+//edit 
+const second = document.querySelector("li:nth-child(2)")
+const newli = document.createElement('li')
+newli.textContent = "changed"
+second.replaceWith(newli)
+//remove
+const last = document.querySelector('li:last-child')
+last.remove()
+</script>
+</html>

@@ -1,0 +1,20 @@
+<!-- This video provides a foundational overview of Asynchronous JavaScript, explaining how the language handles tasks beyond its default synchronous nature. Here are the detailed notes:
+
+1. Default JavaScript Behavior (1:30 - 3:10)
+Synchronous & Single-Threaded: By default, JavaScript is synchronous (executes line-by-line) and single-threaded (uses one thread for all tasks). This can make it feel slower compared to multi-threaded languages.
+The Reality of Execution: While the JavaScript Engine (like V8) is single-threaded, it never runs in isolation. It always operates within a Runtime Environment (like a Browser or Node.js) that provides extra capabilities.
+2. Execution Context (3:15 - 4:45)
+Call Stack: JavaScript uses a Call Stack to track the execution of code. Each function execution creates a new Execution Context.
+Wait Mechanism: Every operation must wait for the previous one to finish before the next one starts, which is the core of synchronous execution.
+3. Blocking vs. Non-Blocking Code (4:48 - 9:30)
+Blocking Code: This pauses the execution of the entire program until a task (like reading a heavy file) completes. Example: Reading a file synchronously.
+Non-Blocking Code: Allows the program to continue executing other tasks while waiting for a long-running process (asynchronous).
+Use-Case Nuance: Neither is universally "better." For example, reading a file is often better off as non-blocking, but for critical operations like database registration, you might want a blocking approach to ensure the user receives a success/error message only after the database process is confirmed.
+4. The Architecture Behind the Scenes (9:30 - 16:00)
+Web APIs / Node APIs: These environments (like the browser) provide extra utilities like setTimeout and DOM event listeners. The JS engine delegates these tasks to the environment.
+Register Callback: Once a task (like a timer) is delegated, a callback is registered.
+Task Queue (Callback Queue): Once the asynchronous task finishes, the callback is moved to the Task Queue.
+Event Loop: The system constantly monitors the Call Stack. If the stack is empty, it pushes the callbacks from the Task Queue into the Call Stack for execution.
+5. Advanced Concepts (17:35 - 18:50)
+Microtask Queue (Promises): Newer APIs like fetch use a different mechanism (a high-priority queue/promise queue) compared to the standard Task Queue. This queue is given priority, meaning its tasks are executed before standard callbacks from the Task Queue.
+Why it Matters: This knowledge is essential for understanding how async/await and promises function behind the scenes, making it a critical topic for coding. -->

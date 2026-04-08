@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <h3>should change bg color after every 1 sec</h3>  
+ <button id="start">start</button> 
+ <button id="stop">stop</button>
+ <script>
+    const randomcolor = function(){
+        const hex = '012356789ABCDEF'
+        let color = '#'
+        for(i=0 ; i<6 ; i++){
+            color += hex[Math.floor(Math.random()*16)] //bcz of pos
+        }
+        return color
+    }
+    let set
+    const start = document.querySelector('#start')
+    const stop = document.querySelector('#stop')
+    const changebg = function(){
+        document.body.style.backgroundColor = randomcolor()
+    }
+    const startchangingcolor = function(){
+        if(!set){
+             set = setInterval(changebg,1000)
+        }
+      
+      
+    }
+start.addEventListener('click', startchangingcolor)
+stop.addEventListener('click', function(){
+clearInterval(set)
+set = null;  //done to make code clean because val are overrriding
+})
+
+ </script>
+</body>
+</html>
